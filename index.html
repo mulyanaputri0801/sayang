@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Anniversary ❤️</title>
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    color: white;
+    text-align: center;
+}
+
+/* Navbar */
+.navbar {
+    padding: 15px;
+    background: rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+}
+
+/* Section */
+.section {
+    padding: 60px 20px;
+}
+
+/* Hero */
+.hero h1 {
+    font-size: 50px;
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Gallery */
+.gallery img {
+    width: 250px;
+    margin: 10px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* Love animation */
+.heart {
+    position: fixed;
+    top: -10px;
+    color: pink;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+/* Button */
+button {
+    padding: 10px 20px;
+    border: none;
+    background: white;
+    color: #ff4b5c;
+    border-radius: 20px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    💖our Fourth Anniversary 💖
+</div>
+
+<!-- Hero -->
+<div class="section hero">
+    <h1>Happy Anniversary SAYANG❤️</h1>
+    <h2>ANDREW & MILA 💕</h2>
+    <p id="typing"></p>
+
+    <button onclick="playMusic()">Play Music 🎵</button>
+</div>
+
+<!-- Gallery -->
+<div class="section gallery">
+    <h2>Our Memories 📸</h2>
+    <img src="foto1.jpg">
+    <img src="foto2.jpg">
+    <img src="foto3.jpg">
+    <img src="foto4.jpg">
+    <img src="foto5.jpg">
+</div>
+
+<!-- Footer -->
+<div class="section">
+    Dibuat dengan cinta 💔🔥
+</div>
+
+<!-- Music -->
+<button onclick="startLove()">Buka Hadiah 🎁</button>
+
+<audio id="music">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Typing effect
+let text = `Thank you, my dear Andrew, for coming into my life.
+You brought a new light and meaning to it.
+
+I’m truly sorry for all my mistakes that may have hurt you.
+I know you’ve always been sincere with me,
+but sometimes I didn’t give you the attention you truly deserved.
+
+Even after everything we’ve been through,
+you still chose to stay.
+Whatever your reasons are, I’m so proud of you, my love.
+
+Thank you for all your love and care.
+I’ve come to realize how deeply I love you.
+
+I hope our love continues to grow
+and leads us to a beautiful future together.
+
+Once again, happy anniversary, my love.
+I love you ❤️`;
+let i = 0;
+
+function typing() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 50);
+    }
+}
+typing();
+
+// Music
+function playMusic() {
+    document.getElementById("music").play();
+}
+
+// Love falling
+function createHeart() {
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
